@@ -17,15 +17,10 @@ respostas = [
 ]
 
 def animarTextoCarregando(texto):
-    sys.stdout.write(f"\r{texto}.")
-    sys.stdout.flush()
-    time.sleep(0.7)
-    sys.stdout.write(f"\r{texto}..")
-    sys.stdout.flush()
-    time.sleep(0.7)
-    sys.stdout.write(f"\r{texto}...")
-    sys.stdout.flush()
-    time.sleep(0.7)
+    for ponto in range (1,4):
+        sys.stdout.write(f"\r{texto}{"." * ponto}")
+        sys.stdout.flush()
+        time.sleep(0.7)
     print()
 
 print()
@@ -40,7 +35,8 @@ while True:
     pergunta = input("\nFaça uma pergunta: ").strip()
 
     if pergunta.lower() == "sair":
-        animarTextoCarregando("\nEncerrando o programa")
+        print()
+        animarTextoCarregando("Encerrando o programa")
         break
 
     if not pergunta:
@@ -49,12 +45,13 @@ while True:
 
     print()
     animarTextoCarregando("Consultando resposta")
-    time.sleep(1)
+    time.sleep(0.5)
 
     respostaFinal = random.choice(respostas)
 
     print(f"\nPergunta: {pergunta}")
     print(f"Resposta: {respostaFinal}")
+    time.sleep(0.7)
 
 
     
